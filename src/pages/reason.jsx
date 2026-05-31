@@ -1,18 +1,31 @@
 import { useNavigate } from "react-router-dom"
 import MultiSelect from "../Components/multiselect.jsx"
+import { useOnboarding } from "../context/OnboardingContext" /* Don't understand the import */
+import { GiAirplaneDeparture, GiMusicalNotes, GiBookCover, GiEarthAmerica, GiMicrophone, GiPaintBrush} from "react-icons/gi"
 
 export default function Reason() {
-    console.log("Reason is opened") /* bp */
     const navigate = useNavigate()
-    const reasons = ["Hobby", "Study", "Culture", "Music", "Travel", "Vocals"]
-    return (
-        <div>
-        <MultiSelect 
-        options={reasons}
-        title="Why are you learning language?"
-        />
+    const { onboardingData, updateOnboarding} = useOnboarding()
 
-        <button onClick={() => navigate("/onboarding/languages")}>CONTINUE</button>
+    const reasons = [
+        { label: "Hobby", icon: <GiPaintBrush /> },
+        { label: "Study Abroad", icon: <GiBookCover /> },
+        { label: "Culture", icon: <GiEarthAmerica /> },
+        { label: "Music", icon: <GiMusicalNotes /> },
+        { label: "Travel", icon: <GiAirplaneDeparture/> },
+        { label: "Vocals", icon: <GiMicrophone/> }
+    ]
+    
+    return (
+        <div className="reason-container">
+            <MultiSelect 
+                options={reasons}
+                title="Why are you learning language?"
+                selected={onboardingData.reasons} /* Don't understand these both lines */
+                onChange={(val) => updateOnboarding("reasons", val)}
+            />
+
+            <button onClick={() => navigate("/onboarding/languages")} className="continue-btn">CONTINUE</button>
         </div>
     )
 }

@@ -1,40 +1,44 @@
-import { useState } from "react"
+export default  function MultiSelect({ options=[], title, selected = [], onChange}) {
 
-export default function MultiSelect({ options=[], title}) {
-    const [selected, setSelected] = useState([])
-
-    console.log("MultiSelect is working...") /* bp */
-    console.log(options) /* bp */
-
+    /* Don't understand this */
+    
     const toggleOption = (option) => {
-        let newSelected;
+        /* Find if clicked label is already in selected, it will return true or false */
+        const isSelected = selected.some(o => o.label === option.label)
 
-        if (selected.includes(option)) {
-            newSelected = selected.filter(o => o != option)
+        /* If it's already selected, then remove it from selected array since it's toggling */
+        if (isSelected) {
+            onChange(selected.filter(o => o.label !== option.label))
         }
         else
         {
-            newSelected = [...selected, option]
+            /* If it's not already there, add it to selected*/
+            onChange([...selected, option])
         }
-        setSelected(newSelected)
+        
     }
+
+    
+
     return (
-        <div>
-            <h2>{title}</h2>
-            {options.map((option) => {
-                return (
-                <button
-                key={option}
-                onClick={() => toggleOption(option)}
-                style={{
-                    background: selected.includes(option) ? "lightblue" : "red"
-                }}
-                >
-                {option}
-                </button>
-                )
-            })}
-     
+        <div className="multiselect-container">
+            <h2 className="multiselect-title">{title}</h2>
+            <p className="multiselect-subtitle">Choose all that apply.</p>
+            <div className="multiselect-grid">
+                {options.map((option) => {
+                    return (
+                        <button
+                            key={option.label}
+                            onClick={() => toggleOption(option)}
+                            className={`multiselect-option-button ${selected.some(o => o.label === option.label) ? "selected" : ""} `}
+                        >
+                            {option.icon}
+                            {option.label}
+                        </button>
+                    )
+                })}
+            </div>
+            
         </div>
     )
 }

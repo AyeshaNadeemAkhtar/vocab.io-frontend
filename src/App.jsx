@@ -1,10 +1,14 @@
 import IntroPage from './pages/IntroPage'
-import createSession from "./pages/createSession"
 import Login from "./pages/login"
+import SignUp from "./pages/signup"
 import Reason from "./pages/reason"
 import InterestedLanguages  from './pages/interestedlanguages'
 import Dashboard from "./pages/Dashboard"
+import Exercises from "./pages/exercises"
+import Input from "./pages/input"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { OnboardingProvider } from "./context/OnboardingContext"
+
 
 export default function App() {
   
@@ -13,13 +17,27 @@ export default function App() {
     <BrowserRouter>
      <Routes>
       <Route path="/" element={<IntroPage />} />
-      <Route path="/signup" element={<createSession />} />
-      <Route path="/login" element={<createSession />} />
+      <Route path="/signup" element={<SignUp />} />
+      <Route path="/login" element={<Login />} />
 
-      <Route path="/onboarding/reason" element={<Reason />} />
-      <Route path="/onboarding/languages" element={<InterestedLanguages />} />
-      <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/onboarding/reason" 
+      element={
+       <OnboardingProvider>
+        <Reason /> 
+        </OnboardingProvider>}
+      />
+
+      <Route path="/onboarding/languages" 
+      element={
+        <OnboardingProvider>
+      <InterestedLanguages />
+      </OnboardingProvider>}
+     />
     
+      <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/input" element={<Input />} />
+      <Route path="/exercises" element={<Exercises />} />
+  
      </Routes>
     </BrowserRouter>
   )
