@@ -9,7 +9,7 @@ export default function Pronunciation() {
                 <div>
                     <p>See you tomorrow.</p>
                     <button className="speak-button">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#0099FF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                             <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
                             <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
                             <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
@@ -19,8 +19,8 @@ export default function Pronunciation() {
                 </div>
                 <div>
                     <p>Ciao! Mi Chiamo Ayesha. Non c'e male</p>
-                    <button>
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#0099FF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <button className="speak-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                             <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
                             <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
                             <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
@@ -30,8 +30,8 @@ export default function Pronunciation() {
                 </div>
                 <div>
                     <p>Buongiorno Dottor Rossi</p>
-                    <button>
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#0099FF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <button className="speak-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                             <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
                             <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
                             <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
@@ -40,15 +40,17 @@ export default function Pronunciation() {
                     </button>
                 </div>
                 <div>
-                     <button>
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#0099FF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
-                            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
-                            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
-                       </svg>
-                    </button>
-                    <input type="text" />
-                    <button>Check</button>
+                    <div className="exercise-4">
+                        <button className="speak-button microphone-button">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+                                <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+                                <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+                        </svg>
+                        </button>
+                        <input type="text" />
+                    </div>
+                    <button className="speak-button">Check</button>
                 </div>
             </div>
         </div>
